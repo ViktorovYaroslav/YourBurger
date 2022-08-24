@@ -2,6 +2,8 @@
 
 The idea behind this app comes from the need to learn new features of JavaScript.
 
+❗You can use the browser console for watch changes in order object❗
+
 In this project, I improved my JS skills, among them:
 - OOP;
 - JS classes
