@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="description" content="Your burger - simple web-shop where you can get tasty food. You are welcome! ">
+   <meta name="keywords" content="burger, web-shop, food delivery, pizza, drinks, fast-food, fastfood, fast food">
+   <meta name="theme-color" content="#db7c2">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>YourBurger</title>
+   <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body>
+   <div class="_wrapper">
+      <header class="header">
+         <div class="_container">
+            <h1 class="logo">
+               <span class="logo__bold">your</span><span class="logo__light">burger</span>
+            </h1>
+         </div>
+      </header>
+      <main class="main">
+         <div class="_container">
+            <section class="products">
+               <header class="products__header">
+                  <h2 class="products__title">Products:</h2>
+               </header>
+               <div class="products__navigation">
+                  <ul class="products__navigation-list">
+                     <li class="products__navigation-item">
+                        <button class="products__navigation-btn _active" type="button">All</button>
+                     </li>
+                     <li class="products__navigation-item">
+                        <button class="products__navigation-btn" type="button" data-category="burger">Burger</button>
+                     </li>
+                     <li class="products__navigation-item">
+                        <button class="products__navigation-btn" type="button" data-category="pizza">Pizza</button>
+                     </li>
+                     <li class="products__navigation-item">
+                        <button class="products__navigation-btn" type="button" data-category="drink">Drink</button>
+                     </li>
+                  </ul>
+               </div>
+
+               <div class="products__table">
+
+                  <article class="products__product product _active" data-category="pizza">
+                     <header class="product__header">
+                        <h3 class="product__title">Carbonarra</h3>
+                     </header>
+                     <figure class="product__image _ibg">
+                        <img src="images/pizzas/pizza1.webp" alt="pizza photo">
+                     </figure>
+                     <div class="product__sizes">
+                        <button class="product__size" data-size="25 cm" data-price="100">25 cm</button>
+                        <button class="product__size" data-size="30 cm" data-price="130">30 cm</button>
+                        <button class="product__size _active" data-size="35 cm" data-price="150">35 cm</button>
+                     </div>
+                     <p class="product__price price"><span class="price-number">150</span> &#8372;</p>
+                     <button class="product__buy">Buy</button>
+                  </article>
+
+                  <article class="products__product product _active" data-category="drink">
+                     <header class="product__header">
+                        <h3 class="product__title">Water</h3>
+                     </header>
+                     <figure class="product__image _ibg">
+                        <img src="images/drinks/water.webp" alt="drink photo">
+                     </figure>
+                     <div class="product__sizes">
+                        <button class="product__size" data-size="0.5 L" data-price="12">0.5 L</button>
+                        <button class="product__size _active" data-size="1 L" data-price="20">1 L</button>
+                     </div>
+                     <p class="product__price price"><span class="price-number">20</span> &#8372;</p>
+                     <button class="product__buy">Buy</button>
+                  </article>
+
+                  <article class="products__product product _active" data-category="drink">
+                     <header class="product__header">
+                        <h3 class="product__title">Cola</h3>
+                     </header>
+                     <figure class="product__image _ibg">
+                        <img src="images/drinks/cola.webp" alt="drink photo">
+                     </figure>
+                     <div class="product__sizes">
+                        <button class="product__size" data-size="0.33 L" data-price="12">0.33 L</button>
+                        <button class="product__size" data-size="0.5 L" data-price="20">0.5 L</button>
+                        <button class="product__size _active" data-size="1 L" data-price="25">1 L</button>
+                     </div>
+                     <p class="product__price price"><span class="price-number">25</span> &#8372;</p>
+                     <button class="product__buy">Buy</button>
+                  </article>
+
+                  <article class="products__product product _active" data-category="burger">
+                     <header class="product__header">
+                        <h3 class="product__title">Burger Hot</h3>
+                     </header>
+                     <figure class="product__image _ibg">
+                        <img src="images/burgers/burger.webp" alt="burger photo">
+                     </figure>
+                     <div class="product__sizes">
+                        <button class="product__size" data-size="100 g" data-price="100">100 g</button>
+                        <button class="product__size _active" data-size="200 g" data-price="130">200 g</button>
+                     </div>
+                     <p class="product__price price"><span class="price-number">130</span> &#8372;</p>
+                     <button class="product__buy">Buy</button>
+                  </article>
+
+                  <article class="products__product product _active" data-category="pizza">
+                     <header class="product__header">
+                        <h3 class="product__title">Margarita</h3>
+                     </header>
+                     <figure class="product__image _ibg">
+                        <img src="images/pizzas/pizza2.webp" alt="pizza photo">
+                     </figure>
+                     <div class="product__sizes">
+                        <button class="product__size" data-size="25 cm" data-price="100">25 cm</button>
+                        <button class="product__size" data-size="30 cm" data-price="130">30 cm</button>
+                        <button class="product__size _active" data-size="35 cm" data-price="150">35 cm</button>
+                     </div>
+                     <p class="product__price price"><span class="price-number">150</span> &#8372;</p>
+                     <button class="product__buy">Buy</button>
+                  </article>
+
+                  <article class="products__product product _active" data-category="burger">
+                     <header class="product__header">
+                        <h3 class="product__title">BigBurger</h3>
+                     </header>
+                     <figure class="product__image _ibg">
+                        <img src="images/burgers/burger2.webp" alt="burger photo">
+                     </figure>
+                     <div class="product__sizes">
+                        <button class="product__size" data-size="200 g" data-price="200">200 g</button>
+                        <button class="product__size" data-size="370 g" data-price="290">370 g</button>
+                        <button class="product__size _active" data-size="1 kg" data-price="500">1 kg</button>
+                     </div>
+                     <p class="product__price price"><span class="price-number">500</span> &#8372;</p>
+                     <button class="product__buy">Buy</button>
+                  </article>
+
+                  <article class="products__product product _active" data-category="pizza">
+                     <header class="product__header">
+                        <h3 class="product__title">Hawaiian</h3>
+                     </header>
+                     <figure class="product__image _ibg">
+                        <img src="images/pizzas/pizza3.webp" alt="pizza photo">
+                     </figure>
+                     <div class="product__sizes">
+                        <button class="product__size" data-size="25 cm" data-price="100">25 cm</button>
+                        <button class="product__size" data-size="30 cm" data-price="130">30 cm</button>
+                        <button class="product__size _active" data-size="35 cm" data-price="150">35 cm</button>
+                     </div>
+                     <p class="product__price price"><span class="price-number">150</span> &#8372;</p>
+                     <button class="product__buy">Buy</button>
+                  </article>
+
+                  <article class="products__product product _active" data-category="drink">
+                     <header class="product__header">
+                        <h3 class="product__title">Fanta</h3>
+                     </header>
+                     <figure class="product__image _ibg">
+                        <img src="images/drinks/fanta.webp" alt="drink photo">
+                     </figure>
+                     <div class="product__sizes">
+                        <button class="product__size" data-size="0.5 L" data-price="13">0.5 L</button>
+                        <button class="product__size _active" data-size="1 L" data-price="19">1 L</button>
+                     </div>
+                     <p class="product__price price"><span class="price-number">19</span> &#8372;</p>
+                     <button class="product__buy">Buy</button>
+                  </article>
+
+               </div>
+
+            </section>
+
+         </div>
+      </main>
+      <footer class="footer">
+         <div class="_container">
+            <h2 class="logo">
+               <span class="logo__bold">your</span><span class="logo__light">burger</span>
+            </h2>
+         </div>
+
+         <button class="cart" title="cart button">
+            <span class="cart__box" data-counter="0">
+            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+               xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 60 60"
+               style="enable-background:new 0 0 60 60;" xml:space="preserve">
+               <path d="M11.68,13l-0.833-5h-2.99C7.411,6.28,5.859,5,4,5C1.794,5,0,6.794,0,9s1.794,4,4,4c1.859,0,3.411-1.28,3.858-3h1.294l0.5,3
+H9.614l5.171,26.016c-2.465,0.188-4.518,2.086-4.76,4.474c-0.142,1.405,0.32,2.812,1.268,3.858C12.242,48.397,13.594,49,15,49h2
+c0,3.309,2.691,6,6,6s6-2.691,6-6h11c0,3.309,2.691,6,6,6s6-2.691,6-6h4c0.553,0,1-0.447,1-1s-0.447-1-1-1h-4.35
+c-0.826-2.327-3.043-4-5.65-4s-4.824,1.673-5.65,4h-11.7c-0.826-2.327-3.043-4-5.65-4s-4.824,1.673-5.65,4H15
+c-0.842,0-1.652-0.362-2.224-0.993c-0.577-0.639-0.848-1.461-0.761-2.316c0.152-1.509,1.546-2.69,3.173-2.69h0.791
+c0.014,0,0.025,0,0.039,0h38.994C57.763,41,60,38.763,60,36.013V13H11.68z M4,11c-1.103,0-2-0.897-2-2s0.897-2,2-2s2,0.897,2,2
+S5.103,11,4,11z M46,45c2.206,0,4,1.794,4,4s-1.794,4-4,4s-4-1.794-4-4S43.794,45,46,45z M23,45c2.206,0,4,1.794,4,4s-1.794,4-4,4
+s-4-1.794-4-4S20.794,45,23,45z M58,36.013C58,37.66,56.66,39,55.013,39H16.821l-4.77-24H58V36.013z" />
+            </svg>
+         </span>
+         </button>
+
+         <div class="cart__pop-up pop-up">
+            <div class="pop-up__body">
+               <button class="pop-up__close" title="cart close button">
+                  <svg width="72px" height="72px" viewBox="0 0 72 72" id="emoji" xmlns="http://www.w3.org/2000/svg" style="enable-background:new 0 0 60 60;">
+                     <g id="line">
+                       <line x1="17.5" x2="54.5" y1="17.5" y2="54.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
+                       <line x1="54.5" x2="17.5" y1="17.5" y2="54.5"  stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
+                     </g>
+                   </svg>
+                   
+               </button>
+               <div class="pop-up__body-table order-table">
+                  <p class="pop-up__body-table-empty">Cart is empty</p>
+               </div>
+               <p class="pop-up__totalPrice totalPrice">Total price: <span class="totalPrice__scoreboard">0</span> &#8372;</p>
+               <form class="pop-up__form order-form" id="order-form">
+                  <input class="order-form__item order-form__name" required type="text" placeholder="Name">
+                  <input class="order-form__item order-form__email" type="email" placeholder="Email">
+                  <input class="order-form__item order-form__phone" required type="tel" placeholder="Phone">
+                  <input class="order-form__item order-form__address" required type="text" placeholder="Address">
+                  <div class="order-form__item type-of-payment__wrapper arrow">
+                     <select class="order-form__type-of-payment type-of-payment" required form="order-form" title="select of payment type">
+                        <option value="" disabled selected>Payment</option>
+                        <option value="Cash payment">Cash payment</option>
+                        <option value="Card payment">Card payment</option>
+                     </select>
+                  </div>
+                  <button class="pop-up__body-makeorder" disabled type="submit">Make order</button>
+               </form>
+            </div>
+         </div>
+
+         <div class="cart__table">
+            <div class="cart__object"></div>
+         </div>
+      </footer>
+   </div>
+
+   <script src="js/main.min.js"></script>
+</body>
+
+</html>
