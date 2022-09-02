@@ -1,4 +1,42 @@
 "use strict";
+// lazy load for images
+
+const productsTable = document.querySelector('.products__table');
+const lazyImages    = productsTable.querySelectorAll('.product__image._lazy > img[data-src]');
+const docHeight     = document.documentElement.clientHeight;
+
+let lazyImagesPositions = [];
+
+if (lazyImages.length){
+   lazyImages.forEach( img => {
+      if (img.dataset.src){
+         lazyImagesPositions.push(img.getBoundingClientRect().top + scrollY);
+         lazyScrollCheck();
+      }
+   })
+}
+
+window.addEventListener('scroll', lazyScroll);
+
+function lazyScroll(){
+   if (productsTable.querySelectorAll('.product__image._lazy > img[data-src]').length){
+      lazyScrollCheck();
+   } else {
+      window.removeEventListener('scroll', lazyScroll)
+   }
+}
+
+function lazyScrollCheck(){
+   let index = lazyImagesPositions.findIndex( item => scrollY > item - docHeight);
+
+   if (index >= 0){
+      if (lazyImages[index].dataset.src){
+         lazyImages[index].src = lazyImages[index].dataset.src;
+         lazyImages[index].removeAttribute('data-src');
+         delete lazyImagesPositions[index];
+      }
+   }
+}
 
 // tabs & filter for products
 
@@ -149,7 +187,7 @@ class OrderItem{
 
 
 //hang up event listener on all buy buttons in catalog
-const cartBox            = document.querySelector('.cart__box');
+const cartBoxCounter            = document.querySelector('.cart__box-counter');
 const orderTableEmtyHTML = `<p class="pop-up__body-table-empty">Cart is empty</p>`;
 
 function checkingOrderEmptyness(){
@@ -160,11 +198,11 @@ function checkingOrderEmptyness(){
    }
 }
 
-orderBtns.forEach((e) => {
+orderBtns.forEach((elem) => {
 
-   e.addEventListener('click', () => {
+   elem.addEventListener('click', (e) => {
       // get important options&values
-      let t            = e;
+      let t            = e.target;
       let parent       = t.closest('.product');
       let activeSize   = parent.querySelector('.product__size._active').dataset.size;
       let activePrice  = parent.querySelector('.product__size._active').dataset.price;
@@ -182,15 +220,12 @@ orderBtns.forEach((e) => {
          order[itemName] = orderItem;
       }
 
-      
-      
-
       // create html parts for order items and show them
       let currentItem = `<article class="order-table__item" data-name="${itemName}" data-pricebyone="${activePrice}">             
                            <header class="order-table__item-header">
                               <h3 class="order-table__item-title product__title">${itemName}</h3>
                            </header>
-                           <button class="order-table__item-delete" onclick="deleteElement(this)" title="delete item from cart">
+                           <button class="order-table__item-delete" onclick="deleteElement(this)" title="delete item from cart" type="button">
                               <svg width="72px" height="72px" viewBox="0 0 72 72" id="emoji" xmlns="http://www.w3.org/2000/svg"style="enable-background:new 0 0 60 60;">
                                  <g id="line">
                                  <line x1="17.5" x2="54.5" y1="17.5" y2="54.5" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
@@ -203,9 +238,9 @@ orderBtns.forEach((e) => {
                            </figure>
                            <div class="order-table__item-aside">
                               <div class="order-table__item-counter item-counter">
-                                 <button class="item-counter__btn item-counter__minus" data-action="-" onclick="changeCartItemCounter(this)"><span>-</span></button>
+                                 <button class="item-counter__btn item-counter__minus" data-action="-" onclick="changeCartItemCounter(this)" type="button"><span>-</span></button>
                                  <p class="item-counter__scoreboard">${order[itemName]['counter']}</p>
-                                 <button class="item-counter__btn item-counter__plus" data-action="+" onclick="changeCartItemCounter(this)">+</button>
+                                 <button class="item-counter__btn item-counter__plus" data-action="+" onclick="changeCartItemCounter(this)" type="button">+</button>
                               </div>
                               <p class="order-table__item-price item-price">
                                  <span class="item-price__scoreboard">${order[itemName]['totalPrice']}</span> 
@@ -213,7 +248,6 @@ orderBtns.forEach((e) => {
                               </p>
                            </div>
                         </article>`;
-
       
       let checkOrderTableOnExistingElement = orderTable.querySelector(`.order-table__item[data-name="${itemName}"]`);
 
@@ -226,17 +260,15 @@ orderBtns.forEach((e) => {
 
       const checkOrderTableOnItems = orderTable.querySelectorAll(`.order-table__item`);
       const orderTableEmpty        = orderTable.querySelector('.pop-up__body-table-empty');
-      
 
       //checking our cart on emptiness and remove text about empty cart if cart isn't empty
       if (checkOrderTableOnItems && orderTableEmpty) {
          orderTableEmpty.remove();
       }
-      
 
       additionalFunctions();
       // set/update value for cart button counter
-      cartBox.setAttribute('data-counter', order.counter);
+      cartBoxCounter.innerHTML = order.counter;
 
       console.log(order);
    })
@@ -249,16 +281,14 @@ function deleteElement(e){
    closestItem.remove();
    delete order[closestItem.dataset.name];
    
-   
    // checking our cart on emptiness and add text about empty cart if cart is empty
    if(orderTable.querySelectorAll(`.order-table__item`).length === 0){
       orderTable.innerHTML = orderTableEmtyHTML;
    };
    
-
    additionalFunctions();
    // update value for cart button counter
-   cartBox.setAttribute('data-counter', order.counter);
+   cartBoxCounter.innerHTML = order.counter;
 
    console.log(order);
 }
@@ -286,7 +316,7 @@ function changeCartItemCounter(e){
    closestItemPriceScoreboard.innerHTML     = order[closestItemDataName]['totalPrice'];
 
    additionalFunctions();
-   cartBox.setAttribute('data-counter', order.counter);
+   cartBoxCounter.innerHTML = order.counter;
 
    console.log(order);
 }
@@ -317,7 +347,7 @@ document.addEventListener('click', (e) => {
 
 let orderFromLocalStorage = localStorage.getItem('order');
 if (orderFromLocalStorage) order = JSON.parse(orderFromLocalStorage);
-cartBox.setAttribute('data-counter', order.counter);
+cartBoxCounter.innerHTML = order.counter;
 if (Object.keys(order).length - 3 > 0){
    orderTable.innerHTML = localStorage.getItem('cartInner');
 }
