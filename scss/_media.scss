@@ -13,7 +13,7 @@
       width: 78px;
       height: 78px;
    }
-   .cart__box:before{
+   .cart__box-counter{
       bottom: 95%;
       left: 95%;
 
@@ -47,6 +47,7 @@
 @media (max-width: 580px) {
    .cart__pop-up{
       padding: 0;
+      overflow: auto;
    }
    .pop-up__body{
       min-width: 100%;
@@ -67,14 +68,14 @@
       bottom: 14px;
       right: 8px;
    }
-   .cart__box:before{
+   .cart__box-counter{
       bottom: 80%;
       left: 60%;
       font-size: .7rem;
       width: 18px;
       height: 28px;
    }
-   .cart__box  svg{
+   .cart__box svg{
       width: 32px;
    }
    .pop-up__body-table {

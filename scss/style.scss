@@ -81,10 +81,14 @@ body._lock{
    font-size: 1.3rem;
 }
 .product__image {
-   transform: scale(.8);
+   position: relative;
    order: -1;
    padding-bottom: 100%;
 }
+.product__image > img{
+   transform: scale(.8);
+}
+
 .product .product__sizes {
    background: var(--white);
    padding: 0 6px;
@@ -172,8 +176,7 @@ body._lock{
 .cart:hover  svg{
    fill: var(--primary-color);
 }
-.cart__box::before{
-   content: attr(data-counter);
+.cart__box-counter{
    position: absolute;
    bottom: 100%;
    left: 100%;
